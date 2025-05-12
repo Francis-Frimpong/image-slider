@@ -10,7 +10,7 @@ body{
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    background-color: rgb(255, 248, 255);
+    background-color: rgb(250, 231, 250);
 }
 
 .slider-container{
@@ -40,6 +40,9 @@ body{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: rgb(214, 210, 210);
+    background-color: rgb(190, 189, 189);
     margin: .7em;
+    box-shadow: 10px 10px 17px -8px rgba(0,0,0,0.56);
+    -webkit-box-shadow: 10px 10px 17px -8px rgba(0,0,0,0.56);
+    -moz-box-shadow: 10px 10px 17px -8px rgba(0,0,0,0.56);
 }
