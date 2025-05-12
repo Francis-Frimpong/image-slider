@@ -45,3 +45,7 @@ body{
     -webkit-box-shadow: 10px 10px 17px -8px rgba(0,0,0,0.56);
     -moz-box-shadow: 10px 10px 17px -8px rgba(0,0,0,0.56);
 }
+
+.indicate-color{
+    background-color: rgb(90, 89, 89);
+}
