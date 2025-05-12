@@ -30,6 +30,8 @@ function nextImage() {
 
 
 }
+
+
 function previousImage() {
     countImg--
     
@@ -63,7 +65,7 @@ setInterval(() => {
     linkIndicatorToImage()
 
     
-},4000)
+},7000)
 
 
 previousBtn.addEventListener('click', previousImage);
