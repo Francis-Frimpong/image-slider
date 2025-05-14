@@ -9,13 +9,24 @@ const imageList = [
     "images/ninja-3.png",
 ]
 
+
+//set counter num to track teh image list
 let countImg = 0
+
+//creating image with the new Image object
 let createImage = new Image();
+
+// assigning the of the image created
 createImage.src = imageList[countImg];
+
+//creating the with and height of the created image
 createImage.width = 500;
 createImage.height = 300;
+
+//inserting the image dynamically into the html or webpage
 imageBox.appendChild(createImage);
 
+//function to move to the next image
 function nextImage() {
     countImg++
     
@@ -31,7 +42,7 @@ function nextImage() {
 
 }
 
-
+//function to move to the previous image
 function previousImage() {
     countImg--
     
@@ -45,6 +56,7 @@ function previousImage() {
     linkIndicatorToImage()
 }
 
+//function to link the the images to it indicators on the web page
 function linkIndicatorToImage() {
     indicators.forEach((indicator, index) => {
         imageList[index]
@@ -56,10 +68,11 @@ function linkIndicatorToImage() {
 
     });
 }
+//calling the linkIndicatorToImage function
 linkIndicatorToImage()
 
 
-
+//Automatically move to the next image using the setInterval callback function
 setInterval(() => {
     nextImage()
     linkIndicatorToImage()
@@ -68,6 +81,7 @@ setInterval(() => {
 },7000)
 
 
+//Linking the the previous and the next button to it respective function
 previousBtn.addEventListener('click', previousImage);
 nextBtn.addEventListener('click', nextImage);
 
