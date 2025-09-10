@@ -11,9 +11,22 @@ class ImageSlider {
 
     imageBox.appendChild(this.createImage);
   }
+
+  nextImage() {
+    this.countImg++;
+
+    if (this.countImg >= this.imageList.length) {
+      this.countImg = 0;
+    }
+
+    this.createImage.src = this.imageList[this.countImg];
+    this.createImage.innerHTML = "";
+    imageBox.appendChild(this.createImage);
+  }
 }
 
 const imageBox = document.querySelector(".image-box");
+const nextBtn = document.querySelector(".fa-chevron-right");
 
 const imageList = [
   "images/ninja-1.png",
@@ -21,4 +34,6 @@ const imageList = [
   "images/ninja-3.png",
 ];
 
-const imagelist = new ImageSlider(imageList);
+const imageSlider = new ImageSlider(imageList);
+
+nextBtn.addEventListener("click", () => imageSlider.nextImage());
