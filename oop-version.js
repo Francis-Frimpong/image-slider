@@ -1,5 +1,10 @@
 class ImageSlider {
   constructor(imageList) {
+    this.imageBox = document.querySelector(".image-box");
+    this.nextBtn = document.querySelector(".fa-chevron-right");
+    this.previousBtn = document.querySelector(".fa-chevron-left");
+    this.indicators = document.querySelectorAll(".indicator");
+
     this.imageList = imageList;
     this.countImg = 0;
     this.createImage = new Image();
@@ -9,7 +14,7 @@ class ImageSlider {
     this.createImage.width = 500;
     this.createImage.height = 300;
 
-    imageBox.appendChild(this.createImage);
+    this.imageBox.appendChild(this.createImage);
   }
 
   nextImage() {
@@ -21,7 +26,7 @@ class ImageSlider {
 
     this.createImage.src = this.imageList[this.countImg];
     this.createImage.innerHTML = "";
-    imageBox.appendChild(this.createImage);
+    this.imageBox.appendChild(this.createImage);
     this.linkIndicatorToImage();
   }
 
@@ -34,12 +39,12 @@ class ImageSlider {
 
     this.createImage.src = this.imageList[this.countImg];
     this.createImage.innerHTML = "";
-    imageBox.appendChild(this.createImage);
+    this.imageBox.appendChild(this.createImage);
     this.linkIndicatorToImage();
   }
 
   linkIndicatorToImage() {
-    indicators.forEach((indicator, index) => {
+    this.indicators.forEach((indicator, index) => {
       this.imageList[index];
       if (index === this.countImg) {
         indicator.classList.add("indicate-color");
@@ -55,12 +60,12 @@ class ImageSlider {
       this.linkIndicatorToImage();
     }, 7000);
   }
-}
 
-const imageBox = document.querySelector(".image-box");
-const nextBtn = document.querySelector(".fa-chevron-right");
-const previousBtn = document.querySelector(".fa-chevron-left");
-const indicators = document.querySelectorAll(".indicator");
+  addEventListeners() {
+    this.previousBtn.addEventListener("click", () => this.previousImage());
+    this.nextBtn.addEventListener("click", () => this.nextImage());
+  }
+}
 
 const imageList = [
   "images/ninja-1.png",
@@ -71,6 +76,4 @@ const imageList = [
 const imageSlider = new ImageSlider(imageList);
 imageSlider.linkIndicatorToImage();
 imageSlider.automaticSlider();
-
-previousBtn.addEventListener("click", () => imageSlider.previousImage());
-nextBtn.addEventListener("click", () => imageSlider.nextImage());
+imageSlider.addEventListeners();
